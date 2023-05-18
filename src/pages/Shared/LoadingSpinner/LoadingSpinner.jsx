@@ -1,5 +1,5 @@
 import Lottie from "lottie-react";
-import loadingAnimation from "../../../assets/loading-animation.json";
+import loadingAnimation from "../../../assets/animation/loading-animation.json";
 // Loading page
 const LoadingSpinner = ({ fullScreen }) => {
   // Loading animation

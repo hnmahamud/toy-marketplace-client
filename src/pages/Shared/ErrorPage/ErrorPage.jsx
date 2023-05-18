@@ -1,6 +1,6 @@
 import { Link, useRouteError } from "react-router-dom";
 import Lottie from "lottie-react";
-import error404 from "../../../assets/404-animation.json";
+import error404 from "../../../assets/animation/404-animation.json";
 
 // Error page
 const ErrorPage = () => {

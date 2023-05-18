@@ -1,7 +1,7 @@
 import { FaGoogle } from "react-icons/fa";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import Lottie from "lottie-react";
-import loginRegAnimation from "../../assets/login-reg-animation.json";
+import loginRegAnimation from "../../assets/animation/login-reg-animation.json";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProviders";
 import { toast } from "react-toastify";

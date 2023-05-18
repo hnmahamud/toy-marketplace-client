@@ -1,5 +1,5 @@
 import { Link, NavLink, useLocation } from "react-router-dom";
-import logo from "../../../assets/logo.png";
+import logo from "../../../assets/logo/logo.png";
 import { useContext } from "react";
 import { AuthContext } from "../../../context/AuthProviders";
 import { toast } from "react-toastify";
@@ -34,7 +34,7 @@ const NavBar = () => {
       >
         Home
       </NavLink>
-      <NavLink className="hover:text-blue-600">All Toys</NavLink>
+      <NavLink to='/all-toys' className="hover:text-blue-600">All Toys</NavLink>
       {user && (
         <>
           <NavLink className="hover:text-blue-600">My Toys</NavLink>
@@ -88,7 +88,10 @@ const NavBar = () => {
       </div>
       <div className="navbar-end">
         {user ? (
-          <div className="dropdown dropdown-end">
+          <div
+            className="dropdown dropdown-end tooltip tooltip-left"
+            data-tip={user.displayName}
+          >
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-16 rounded-full">
                 <img src={user.photoURL} />

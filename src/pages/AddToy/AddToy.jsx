@@ -1,12 +1,12 @@
 import Lottie from "lottie-react";
-import addToyAnimation from "../../assets/add-toy.json";
+import addToyAnimation from "../../assets/animation/add-toy.json";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProviders";
 import { toast } from "react-toastify";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
-  const [selectedOption, setSelectedOption] = useState("math_toys");
+  const [selectedOption, setSelectedOption] = useState("Language Toys");
   const handleSelectChange = (event) => {
     setSelectedOption(event.target.value);
   };
@@ -28,6 +28,7 @@ const AddToy = () => {
       name,
       seller_name: sellerName,
       seller_email: sellerEmail,
+      sub_category: selectedOption,
       price,
       rating,
       available_quantity: availableQuantity,
@@ -139,9 +140,9 @@ const AddToy = () => {
                     className="select select-bordered w-full"
                     required
                   >
-                    <option value="math_toys">Math Toys</option>
-                    <option value="language_toys">Language Toys</option>
-                    <option value="science_toys">Science Toys</option>
+                    <option value="math toys">Language Toys</option>
+                    <option value="language toys">Engineering Toys</option>
+                    <option value="science toys">Science Toys</option>
                   </select>
                 </div>
                 <div className="form-control w-1/2">
