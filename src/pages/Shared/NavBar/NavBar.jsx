@@ -1,10 +1,15 @@
-import { Link, NavLink } from "react-router-dom";
+import { Link, NavLink, useLocation } from "react-router-dom";
 import logo from "../../../assets/logo.png";
 
 const NavBar = () => {
+  const { pathname } = useLocation();
   const navItems = (
     <>
-      <NavLink className="hover:text-blue-600">Home</NavLink>
+      <NavLink
+        className={`${pathname === "/" && "text-blue-600"} hover:text-blue-600`}
+      >
+        Home
+      </NavLink>
       <NavLink className="hover:text-blue-600">All Toys</NavLink>
       <NavLink className="hover:text-blue-600">My Toys</NavLink>
       <NavLink className="hover:text-blue-600">Add A Toy</NavLink>
@@ -61,7 +66,9 @@ const NavBar = () => {
             <Link className="hover:text-blue-600">Logout</Link>
           </ul>
         </div>
-        <Link className="btn btn-outline btn-sm btn-primary">Login</Link>
+        <Link to="/login" className="btn btn-outline btn-sm btn-primary">
+          Login
+        </Link>
       </div>
     </div>
   );
