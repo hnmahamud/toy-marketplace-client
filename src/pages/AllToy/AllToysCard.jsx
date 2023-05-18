@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 const AllToysCard = ({ toy }) => {
   const { _id, seller_name, name, sub_category, price, available_quantity } =
     toy;
@@ -9,7 +11,12 @@ const AllToysCard = ({ toy }) => {
       <td>${price}</td>
       <td>{available_quantity}</td>
       <td>
-        <button className="btn btn-active btn-ghost btn-xs">Details</button>
+        <Link
+          to={`/toy-details/${_id}`}
+          className="btn btn-active btn-ghost btn-xs"
+        >
+          Details
+        </Link>
       </td>
     </tr>
   );

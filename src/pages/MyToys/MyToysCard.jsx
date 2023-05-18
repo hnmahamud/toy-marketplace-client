@@ -2,7 +2,7 @@ import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { Link } from "react-router-dom";
 
-const MyToysCard = ({ toys, handleDelete }) => {
+const MyToysCard = ({ toy, handleDelete }) => {
   const {
     _id,
     picture_url,
@@ -14,7 +14,7 @@ const MyToysCard = ({ toys, handleDelete }) => {
     rating,
     available_quantity,
     detail_description,
-  } = toys;
+  } = toy;
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 shadow-md border rounded-md mb-4">
       <figure className="md:col-span-1">

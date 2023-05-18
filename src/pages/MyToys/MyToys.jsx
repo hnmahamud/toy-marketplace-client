@@ -54,10 +54,10 @@ const MyToys = () => {
     <div className="my-8">
       <h1 className="text-3xl font-bold text-center mb-8">My Toys</h1>
       {myToys.length > 0 ? (
-        myToys.map((toys) => (
+        myToys.map((toy) => (
           <MyToysCard
-            key={toys._id}
-            toys={toys}
+            key={toy._id}
+            toy={toy}
             handleDelete={handleDelete}
           ></MyToysCard>
         ))

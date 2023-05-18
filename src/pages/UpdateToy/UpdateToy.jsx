@@ -1,5 +1,5 @@
 import { toast } from "react-toastify";
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
@@ -7,6 +7,7 @@ import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
 const UpdateToy = () => {
   const { id } = useParams();
   const [toy, setToy] = useState();
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetch(`http://localhost:5000/toys/${id}`)
@@ -52,6 +53,7 @@ const UpdateToy = () => {
             progress: undefined,
             theme: "light",
           });
+          navigate("/my-toys", { replace: true });
         }
       })
       .catch((error) => console.log(error));
