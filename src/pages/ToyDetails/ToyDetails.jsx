@@ -34,8 +34,10 @@ const ToyDetails = () => {
     detail_description,
   } = toy;
   return (
-    <div className="md:h-[calc(100vh-138px)] my-8 md:my-16">
-      <h1 className="text-3xl font-bold text-center mb-8">Toy details</h1>
+    <div className="md:h-[calc(100vh-138px)] my-8">
+      <h1 className="text-center text-2xl text-gray-500 font-extrabold mb-8">
+        Toy details
+      </h1>
       <div className="grid grid-cols-1 md:grid-cols-3 shadow-md border rounded-md">
         <figure className="md:col-span-1">
           <img src={picture_url} />

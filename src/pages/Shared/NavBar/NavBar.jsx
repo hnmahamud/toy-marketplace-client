@@ -62,7 +62,14 @@ const NavBar = () => {
           </NavLink>
         </>
       )}
-      <NavLink className="hover:text-blue-600">Blogs</NavLink>
+      <NavLink
+        to="/blogs"
+        className={`${
+          pathname === "/blogs" && "text-blue-600"
+        } hover:text-blue-600`}
+      >
+        Blogs
+      </NavLink>
     </>
   );
   return (

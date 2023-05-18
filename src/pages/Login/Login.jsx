@@ -94,7 +94,9 @@ const Login = () => {
         </div>
         <div className="card w-full max-w-sm rounded-md border md:ml-32">
           <div className="card-body">
-            <h1 className="text-3xl font-bold text-center mb-4">Login</h1>
+            <h1 className="text-center text-2xl text-gray-500 font-extrabold mb-4">
+              Login
+            </h1>
             <p className="text-red-600">{error}</p>
             <form onSubmit={handleLogin}>
               <div className="form-control">

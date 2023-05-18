@@ -63,7 +63,9 @@ const AddToy = () => {
   };
   return (
     <div className="my-8">
-      <h1 className="text-3xl font-bold text-center">Add a toy</h1>
+      <h1 className="text-center text-2xl text-gray-500 font-extrabold">
+        Add a toy
+      </h1>
       <div className="">
         <div className="">
           <Lottie

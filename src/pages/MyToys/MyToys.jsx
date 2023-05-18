@@ -52,7 +52,9 @@ const MyToys = () => {
 
   return (
     <div className="my-8">
-      <h1 className="text-3xl font-bold text-center mb-8">My Toys</h1>
+      <h1 className="text-center text-2xl text-gray-500 font-extrabold mb-8">
+        My Toys
+      </h1>
       {myToys.length > 0 ? (
         myToys.map((toy) => (
           <MyToysCard
