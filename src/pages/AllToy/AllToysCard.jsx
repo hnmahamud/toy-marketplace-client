@@ -1,5 +1,6 @@
-const AllToyCard = ({ toy }) => {
-  const { seller_name, name, sub_category, price, available_quantity } = toy;
+const AllToysCard = ({ toy }) => {
+  const { _id, seller_name, name, sub_category, price, available_quantity } =
+    toy;
   return (
     <tr>
       <th>{seller_name}</th>
@@ -14,4 +15,4 @@ const AllToyCard = ({ toy }) => {
   );
 };
 
-export default AllToyCard;
+export default AllToysCard;

@@ -34,10 +34,24 @@ const NavBar = () => {
       >
         Home
       </NavLink>
-      <NavLink to='/all-toys' className="hover:text-blue-600">All Toys</NavLink>
+      <NavLink
+        to="/all-toys"
+        className={`${
+          pathname === "/all-toys" && "text-blue-600"
+        } hover:text-blue-600`}
+      >
+        All Toys
+      </NavLink>
       {user && (
         <>
-          <NavLink className="hover:text-blue-600">My Toys</NavLink>
+          <NavLink
+            to="/my-toys"
+            className={`${
+              pathname === "/my-toys" && "text-blue-600"
+            } hover:text-blue-600`}
+          >
+            My Toys
+          </NavLink>
           <NavLink
             to="/add-toy"
             className={`${

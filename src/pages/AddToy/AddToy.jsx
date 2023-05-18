@@ -6,7 +6,7 @@ import { toast } from "react-toastify";
 
 const AddToy = () => {
   const { user } = useContext(AuthContext);
-  const [selectedOption, setSelectedOption] = useState("Language Toys");
+  const [selectedOption, setSelectedOption] = useState("language toys");
   const handleSelectChange = (event) => {
     setSelectedOption(event.target.value);
   };
@@ -46,6 +46,7 @@ const AddToy = () => {
       .then((data) => {
         console.log(data);
         if (data.insertedId) {
+          form.reset();
           toast("Toy added successful!", {
             position: "top-center",
             autoClose: 3000,
@@ -125,6 +126,7 @@ const AddToy = () => {
                     placeholder="Seller Name"
                     className="input input-bordered"
                     required
+                    readOnly
                   />
                 </div>
               </div>
@@ -140,8 +142,8 @@ const AddToy = () => {
                     className="select select-bordered w-full"
                     required
                   >
-                    <option value="math toys">Language Toys</option>
-                    <option value="language toys">Engineering Toys</option>
+                    <option value="language toys">Language Toys</option>
+                    <option value="math toys">Math Toys</option>
                     <option value="science toys">Science Toys</option>
                   </select>
                 </div>
