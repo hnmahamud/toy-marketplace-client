@@ -21,7 +21,7 @@ const AllToys = () => {
     <div className="my-8">
       <h1 className="text-3xl font-bold text-center mb-8">All Toys</h1>
       {allToys.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-3 md:justify-center gap-4">
+        <div className="grid grid-cols-1 md:grid-cols-3 md:justify-center md:gap-4">
           <div className="col-span-2">
             <div className="overflow-x-auto">
               <table className="table w-full">

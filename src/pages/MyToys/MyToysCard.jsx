@@ -1,5 +1,6 @@
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
+import { Link } from "react-router-dom";
 
 const MyToysCard = ({ toys, handleDelete }) => {
   const {
@@ -43,7 +44,7 @@ const MyToysCard = ({ toys, handleDelete }) => {
               <strong>Available Quantity:</strong> {available_quantity}
             </p>
             <p>
-              <strong>Price:</strong> {price}
+              <strong>Price:</strong> ${price}
             </p>
           </div>
         </div>
@@ -51,7 +52,12 @@ const MyToysCard = ({ toys, handleDelete }) => {
           <strong>Detail Description:</strong> {detail_description}
         </p>
         <div className="card-actions justify-end">
-          <button className="btn btn-xs btn-active btn-ghost">Update</button>
+          <Link
+            to={`/update-toy/${_id}`}
+            className="btn btn-xs btn-active btn-ghost"
+          >
+            Update
+          </Link>
           <button
             onClick={() => handleDelete(_id)}
             className="btn btn-xs btn-active btn-ghost"

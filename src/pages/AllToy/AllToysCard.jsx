@@ -6,7 +6,7 @@ const AllToysCard = ({ toy }) => {
       <th>{seller_name}</th>
       <td>{name}</td>
       <td>{sub_category}</td>
-      <td>{price}</td>
+      <td>${price}</td>
       <td>{available_quantity}</td>
       <td>
         <button className="btn btn-active btn-ghost btn-xs">Details</button>
