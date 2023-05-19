@@ -1,6 +1,7 @@
 import { useContext } from "react";
 import { AuthContext } from "../context/AuthProviders";
 import { Navigate, useLocation } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
@@ -17,6 +18,17 @@ const PrivateRoute = ({ children }) => {
   if (user) {
     return children;
   }
+
+  toast.warning("You have to login first!", {
+    position: "top-center",
+    autoClose: 3000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: true,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+  });
 
   // if user is not logged in then don't go to private target page. Navigate login page
   return <Navigate to="/login" state={location?.pathname} replace></Navigate>;

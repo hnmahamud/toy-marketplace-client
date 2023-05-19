@@ -2,16 +2,32 @@ import { useEffect, useState } from "react";
 import allToysPic from "../../assets/photos/allToys.jpg";
 import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
 import AllToysCard from "./AllToysCard";
+import { useLoaderData } from "react-router-dom";
 
 const AllToys = () => {
   const [allToys, setAllToys] = useState(false);
 
+  const [currentPage, setCurrentPage] = useState(0);
+  const [itemsPerPage, setItemsPerPage] = useState(20);
+  const { totalToys } = useLoaderData();
+  const totalPages = Math.ceil(totalToys / itemsPerPage);
+
+  const pageNumbers = [...Array(totalPages).keys()];
+
+  const option = [1, 5, 10, 20, 30];
+  const handleChange = (event) => {
+    setItemsPerPage(event.target.value);
+    setCurrentPage(0);
+  };
+
   useEffect(() => {
-    fetch("http://localhost:5000/toys")
+    fetch(
+      `http://localhost:5000/toys?currentPage=${currentPage}&itemsPerPage=${itemsPerPage}`
+    )
       .then((res) => res.json())
       .then((data) => setAllToys(data))
       .catch((error) => console.log(error));
-  }, []);
+  }, [currentPage, itemsPerPage]);
 
   if (!allToys) {
     return <LoadingSpinner fullScreen={false}></LoadingSpinner>;
@@ -44,6 +60,29 @@ const AllToys = () => {
                     ))}
                 </tbody>
               </table>
+            </div>
+            <div className="text-center space-x-2 my-8">
+              {pageNumbers.map((number) => (
+                <button
+                  key={number}
+                  onClick={() => setCurrentPage(number)}
+                  type="button"
+                  className={`${
+                    number === currentPage ? "bg-blue-700 text-white" : ""
+                  } border border-blue-700 font-medium rounded-lg text-sm p-2 text-center inline-flex items-center`}
+                >
+                  {number + 1}
+                </button>
+              ))}
+              <select
+                className="border border-blue-700 font-medium rounded-lg text-sm p-2 text-center inline-flex items-center"
+                onChange={handleChange}
+                value={itemsPerPage}
+              >
+                {option.map((op, index) => (
+                  <option key={index}>{op}</option>
+                ))}
+              </select>
             </div>
           </div>
           <div className="col-span-1">
