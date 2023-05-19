@@ -5,6 +5,7 @@ const AllToysCard = ({ toy }) => {
     toy;
   return (
     <tr>
+      <th></th>
       <th>{seller_name}</th>
       <td>{name}</td>
       <td>{sub_category}</td>

@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import allToysPic from "../../assets/photos/allToys.jpg";
 import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
 import AllToysCard from "./AllToysCard";
@@ -6,6 +6,7 @@ import { useLoaderData } from "react-router-dom";
 
 const AllToys = () => {
   const [allToys, setAllToys] = useState(false);
+  const inputRef = useRef(null);
 
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(20);
@@ -18,6 +19,7 @@ const AllToys = () => {
   const handleChange = (event) => {
     setItemsPerPage(event.target.value);
     setCurrentPage(0);
+    inputRef.current.value = "";
   };
 
   useEffect(() => {
@@ -33,11 +35,65 @@ const AllToys = () => {
     return <LoadingSpinner fullScreen={false}></LoadingSpinner>;
   }
 
+  const handleFind = (event) => {
+    event.preventDefault();
+    const form = event.target;
+    const searchText = form.searchText.value;
+    if (searchText === "") {
+      setItemsPerPage(20);
+    }
+    fetch(`http://localhost:5000/toys-search?searchText=${searchText}`)
+      .then((res) => res.json())
+      .then((data) => setAllToys(data))
+      .catch((error) => console.log(error));
+  };
+
+  const changeHandleFind = (event) => {
+    const searchText = event.target.value;
+    if (searchText === "") {
+      setItemsPerPage(20);
+    }
+    fetch(`http://localhost:5000/toys-search?searchText=${searchText}`)
+      .then((res) => res.json())
+      .then((data) => setAllToys(data))
+      .catch((error) => console.log(error));
+  };
+
   return (
     <div className="my-8">
       <h1 className="text-center text-2xl text-gray-500 font-extrabold mb-8">
         All Toys
       </h1>
+      <div className="flex justify-center items-center text-center my-12">
+        <div className="form-control">
+          <form onSubmit={handleFind} className="input-group">
+            <input
+              ref={inputRef}
+              onChange={changeHandleFind}
+              name="searchText"
+              type="text"
+              placeholder="Search your toys..."
+              className="input input-bordered input-sm md:input-md"
+            />
+            <button className="btn btn-square btn-sm md:btn-md">
+              <svg
+                xmlns="http://www.w3.org/2000/svg"
+                className="h-6 w-6"
+                fill="none"
+                viewBox="0 0 24 24"
+                stroke="currentColor"
+              >
+                <path
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                  strokeWidth="2"
+                  d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z"
+                />
+              </svg>
+            </button>
+          </form>
+        </div>
+      </div>
       {allToys.length > 0 ? (
         <div className="grid grid-cols-1 md:grid-cols-3 md:justify-center md:gap-4">
           <div className="col-span-2">
@@ -45,6 +101,7 @@ const AllToys = () => {
               <table className="table w-full">
                 <thead>
                   <tr>
+                    <th></th>
                     <th>Seller Name</th>
                     <th>Toy Name</th>
                     <th>Sub-category</th>
@@ -69,7 +126,7 @@ const AllToys = () => {
                   type="button"
                   className={`${
                     number === currentPage ? "bg-blue-700 text-white" : ""
-                  } border border-blue-700 font-medium rounded-lg text-sm p-2 text-center inline-flex items-center`}
+                  } border border-blue-700 font-medium rounded-full text-sm px-3 py-1.5 text-center inline-flex items-center`}
                 >
                   {number + 1}
                 </button>
