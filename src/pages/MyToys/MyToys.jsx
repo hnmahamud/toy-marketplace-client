@@ -7,16 +7,20 @@ import Swal from "sweetalert2";
 const MyToys = () => {
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState(false);
+  const [sortBy, setSortBy] = useState("normal");
+  const handleSelectChange = (event) => {
+    setSortBy(event.target.value);
+  };
 
   const email = user?.email;
   useEffect(() => {
-    fetch(`http://localhost:5000/my-toys?email=${email}`)
+    fetch(`http://localhost:5000/my-toys?email=${email}&sortBy=${sortBy}`)
       .then((res) => res.json())
       .then((data) => {
         setMyToys(data);
       })
       .catch((error) => console.log(error));
-  }, [email]);
+  }, [email, sortBy]);
 
   const handleDelete = (id) => {
     Swal.fire({
@@ -52,9 +56,27 @@ const MyToys = () => {
 
   return (
     <div className="my-8">
-      <h1 className="text-center text-2xl text-gray-500 font-extrabold mb-8">
+      <h1 className="text-2xl text-center text-gray-500 font-extrabold mb-8">
         My Toys
       </h1>
+      <div className="mb-4">
+        <label className="label">
+          <span className="text-lg text-gray-500 font-extrabold">
+            Sort By Price:
+          </span>
+        </label>
+        <select
+          value={sortBy}
+          onChange={handleSelectChange}
+          className="select select-bordered"
+          required
+        >
+          <option value="normal">-Select One-</option>
+          <option value="ascending">Ascending</option>
+          <option value="descending">Descending</option>
+        </select>
+      </div>
+
       {myToys.length > 0 ? (
         myToys.map((toy) => (
           <MyToysCard
