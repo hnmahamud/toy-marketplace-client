@@ -10,7 +10,7 @@ const UpdateToy = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/toys/${id}`)
+    fetch(`https://toy-marketplace-server-azure.vercel.app/toys/${id}`)
       .then((res) => res.json())
       .then((data) => {
         console.log(data);
@@ -32,7 +32,7 @@ const UpdateToy = () => {
       detail_description: detailDescription,
     };
 
-    fetch(`http://localhost:5000/toys/${id}`, {
+    fetch(`https://toy-marketplace-server-azure.vercel.app/toys/${id}`, {
       method: "PATCH",
       headers: {
         "Content-Type": "application/json",

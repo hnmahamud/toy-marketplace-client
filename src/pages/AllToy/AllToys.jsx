@@ -24,7 +24,7 @@ const AllToys = () => {
 
   useEffect(() => {
     fetch(
-      `http://localhost:5000/toys?currentPage=${currentPage}&itemsPerPage=${itemsPerPage}`
+      `https://toy-marketplace-server-azure.vercel.app/toys?currentPage=${currentPage}&itemsPerPage=${itemsPerPage}`
     )
       .then((res) => res.json())
       .then((data) => setAllToys(data))
@@ -42,7 +42,9 @@ const AllToys = () => {
     if (searchText === "") {
       setItemsPerPage(20);
     }
-    fetch(`http://localhost:5000/toys-search?searchText=${searchText}`)
+    fetch(
+      `https://toy-marketplace-server-azure.vercel.app/toys-search?searchText=${searchText}`
+    )
       .then((res) => res.json())
       .then((data) => setAllToys(data))
       .catch((error) => console.log(error));
@@ -53,7 +55,9 @@ const AllToys = () => {
     if (searchText === "") {
       setItemsPerPage(20);
     }
-    fetch(`http://localhost:5000/toys-search?searchText=${searchText}`)
+    fetch(
+      `https://toy-marketplace-server-azure.vercel.app/toys-search?searchText=${searchText}`
+    )
       .then((res) => res.json())
       .then((data) => setAllToys(data))
       .catch((error) => console.log(error));

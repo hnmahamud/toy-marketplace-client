@@ -13,7 +13,7 @@ const Main = () => {
   }
 
   return (
-    <div className="w-[98%] md:w-[80%] mx-auto">
+    <div className="w-[95%] md:w-[80%] mx-auto">
       <NavBar></NavBar>
       <Outlet></Outlet>
       <Footer></Footer>

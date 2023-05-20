@@ -9,10 +9,9 @@ const ToyDetails = () => {
   const [toy, setToy] = useState();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/toys/${id}`)
+    fetch(`https://toy-marketplace-server-azure.vercel.app/toys/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setToy(data);
       })
       .catch((error) => console.log(error));
