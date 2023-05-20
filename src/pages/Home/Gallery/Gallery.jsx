@@ -24,7 +24,12 @@ const Gallery = () => {
   };
   return (
     <div className="space-y-8 mt-16 md:mt-16 mb-8 md:mb-32">
-      <div className="md:w-[70%] md:mx-auto md:text-center space-y-4">
+      <div
+        data-aos="fade-down"
+        data-aos-easing="linear"
+        data-aos-duration="1000"
+        className="md:w-[70%] md:mx-auto md:text-center space-y-4"
+      >
         <h2 className="text-2xl md:text-4xl text-gray-500 font-extrabold">
           Play with <br className="hidden md:block" /> Captivating Educational
           Toy Gallery

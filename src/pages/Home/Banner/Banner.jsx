@@ -3,7 +3,12 @@ import bannerPhoto from "../../../assets/photos/banner-photo.jpg";
 const Banner = () => {
   return (
     <div className="md:h-[calc(100vh-69px)] grid grid-cols-1 md:grid-cols-2 justify-between items-center gap-4 my-8 md:my-0">
-      <div className="space-y-4">
+      <div
+        data-aos="fade-right"
+        data-aos-easing="linear"
+        data-aos-duration="1000"
+        className="space-y-4"
+      >
         <h2 className="text-2xl md:text-4xl text-gray-500 font-extrabold">
           Unlock the Joy of Learning with Educational Toys
         </h2>
@@ -23,7 +28,12 @@ const Banner = () => {
           More Info
         </button>
       </div>
-      <div className="md:ml-auto">
+      <div
+        data-aos="fade-left"
+        data-aos-easing="linear"
+        data-aos-duration="1000"
+        className="md:ml-auto"
+      >
         <img className="md:h-[500px] rounded-md" src={bannerPhoto} alt="" />
       </div>
     </div>
