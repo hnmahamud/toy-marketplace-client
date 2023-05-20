@@ -26,7 +26,7 @@ const ContactUs = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 md:justify-center gap-4 md:gap-16">
         <div
           className="rounded-md"
-          data-aos="fade-right"
+          data-aos="fade-down"
           data-aos-easing="linear"
           data-aos-duration="1000"
         >
@@ -48,7 +48,7 @@ const ContactUs = () => {
           </MapContainer>
         </div>
         <div
-          data-aos="fade-left"
+          data-aos="fade-up"
           data-aos-easing="linear"
           data-aos-duration="1000"
           className="card w-full rounded-md border"
