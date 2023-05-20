@@ -1,5 +1,6 @@
 import useTitle from "../../../hooks/useTitle";
 import Banner from "../Banner/Banner";
+import ContactUs from "../ContactUs/ContactUs";
 import CustomerSays from "../CustomerSays/CustomerSays";
 import Gallery from "../Gallery/Gallery";
 import ShopByCategory from "../ShopByCategory/ShopByCategory";
@@ -12,6 +13,7 @@ const Home = () => {
       <Gallery></Gallery>
       <ShopByCategory></ShopByCategory>
       <CustomerSays></CustomerSays>
+      <ContactUs></ContactUs>
     </div>
   );
 };

@@ -2,8 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-.lg-react-element {
+/* .lg-react-element {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
   gap: 10px;
-}
+} */

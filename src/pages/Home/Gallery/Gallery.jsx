@@ -10,6 +10,8 @@ import lgThumbnail from "lightgallery/plugins/thumbnail";
 import lgZoom from "lightgallery/plugins/zoom";
 import { useEffect, useState } from "react";
 
+import "./gallery.css";
+
 const Gallery = () => {
   const [images, setImages] = useState();
   useEffect(() => {
