@@ -1,14 +1,12 @@
 import useTitle from "../../hooks/useTitle";
+import Hero from "../Shared/Hero/Hero";
 
 const Blogs = () => {
   useTitle("Blogs");
   return (
     <div>
-      {/* Blogs Section */}
       <div className="flex flex-col space-y-4 my-8">
-        <h3 className="text-center text-2xl text-gray-500 font-extrabold mb-8">
-          Blogs
-        </h3>
+        <Hero title="Blogs"></Hero>
         <div
           data-aos="fade-right"
           data-aos-easing="linear"
