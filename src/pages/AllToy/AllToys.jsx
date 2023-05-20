@@ -3,8 +3,10 @@ import allToysPic from "../../assets/photos/allToys.jpg";
 import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
 import AllToysCard from "./AllToysCard";
 import { useLoaderData } from "react-router-dom";
+import useTitle from "../../hooks/useTitle";
 
 const AllToys = () => {
+  useTitle("All Toys");
   const [allToys, setAllToys] = useState(false);
   const inputRef = useRef(null);
 

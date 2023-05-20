@@ -3,8 +3,11 @@ import { useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
+import useTitle from "../../hooks/useTitle";
 
 const UpdateToy = () => {
+  // Custom hook for set website page wise title
+  useTitle("Update Toy");
   const { id } = useParams();
   const [toy, setToy] = useState();
   const navigate = useNavigate();

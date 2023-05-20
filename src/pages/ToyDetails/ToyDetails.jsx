@@ -3,8 +3,11 @@ import "@smastrom/react-rating/style.css";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
+import useTitle from "../../hooks/useTitle";
 
 const ToyDetails = () => {
+  // Custom hook for set website page wise title
+  useTitle("Toy Details");
   const { id } = useParams();
   const [toy, setToy] = useState();
 

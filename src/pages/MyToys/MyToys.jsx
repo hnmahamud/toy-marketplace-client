@@ -3,8 +3,11 @@ import { AuthContext } from "../../context/AuthProviders";
 import MyToysCard from "./MyToysCard";
 import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
 import Swal from "sweetalert2";
+import useTitle from "../../hooks/useTitle";
 
 const MyToys = () => {
+  // Custom hook for set website page wise title
+  useTitle("My Toys");
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState(false);
   const [sortBy, setSortBy] = useState("normal");

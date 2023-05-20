@@ -3,8 +3,10 @@ import addToyAnimation from "../../assets/animation/add-toy.json";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProviders";
 import { toast } from "react-toastify";
+import useTitle from "../../hooks/useTitle";
 
 const AddToy = () => {
+  useTitle("Add Toy");
   const { user } = useContext(AuthContext);
   const [selectedOption, setSelectedOption] = useState("language toys");
   const handleSelectChange = (event) => {

@@ -3,8 +3,11 @@ import Lottie from "lottie-react";
 import loginRegAnimation from "../../assets/animation/login-reg-animation.json";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProviders";
+import useTitle from "../../hooks/useTitle";
 
 const Register = () => {
+  // Custom hook for set website page wise title
+  useTitle("Register");
   // Context API
   const { createUser, profileUpdate } = useContext(AuthContext);
 

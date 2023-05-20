@@ -5,8 +5,11 @@ import loginRegAnimation from "../../assets/animation/login-reg-animation.json";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProviders";
 import { toast } from "react-toastify";
+import useTitle from "../../hooks/useTitle";
 
 const Login = () => {
+  // Custom hook for set website page wise title
+  useTitle("Login");
   // Use Context API
   const { loginUser, googleLogin } = useContext(AuthContext);
 
