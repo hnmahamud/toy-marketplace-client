@@ -9,7 +9,12 @@ const Blogs = () => {
         <h3 className="text-center text-2xl text-gray-500 font-extrabold mb-8">
           Blogs
         </h3>
-        <div className="card card-side border rounded-md shadow-md p-2 md:p-4">
+        <div
+          data-aos="fade-right"
+          data-aos-easing="linear"
+          data-aos-duration="1000"
+          className="card card-side border rounded-md shadow-md p-2 md:p-4"
+        >
           <div className="col-span-2 card-body">
             <div className="flex flex-col space-y-4">
               <h2 className="text-gray-600 text-lg font-bold">
@@ -47,7 +52,12 @@ const Blogs = () => {
           </div>
         </div>
 
-        <div className="card card-side border rounded-md shadow-md p-4">
+        <div
+          data-aos="fade-left"
+          data-aos-easing="linear"
+          data-aos-duration="1000"
+          className="card card-side border rounded-md shadow-md p-4"
+        >
           <div className="col-span-2 card-body">
             <div className="flex flex-col space-y-4">
               <h2 className="text-gray-600 text-lg font-bold">
@@ -65,7 +75,12 @@ const Blogs = () => {
           </div>
         </div>
 
-        <div className="card card-side border rounded-md shadow-md p-4">
+        <div
+          data-aos="fade-right"
+          data-aos-easing="linear"
+          data-aos-duration="1000"
+          className="card card-side border rounded-md shadow-md p-4"
+        >
           <div className="col-span-2 card-body">
             <div className="flex flex-col space-y-4">
               <h2 className="text-gray-600 text-lg font-bold">
@@ -97,7 +112,12 @@ const Blogs = () => {
           </div>
         </div>
 
-        <div className="card card-side border rounded-md shadow-md p-4">
+        <div
+          data-aos="fade-left"
+          data-aos-easing="linear"
+          data-aos-duration="1000"
+          className="card card-side border rounded-md shadow-md p-4"
+        >
           <div className="col-span-2 card-body">
             <div className="flex flex-col space-y-4">
               <h2 className="text-gray-600 text-lg font-bold">
