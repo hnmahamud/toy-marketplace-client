@@ -10,8 +10,8 @@ const AllToys = () => {
 
   const [currentPage, setCurrentPage] = useState(0);
   const [itemsPerPage, setItemsPerPage] = useState(20);
-  const { totalToys } = useLoaderData();
-  const totalPages = Math.ceil(totalToys / itemsPerPage);
+  const { totalToysNumber } = useLoaderData();
+  const totalPages = Math.ceil(totalToysNumber / itemsPerPage);
 
   const pageNumbers = [...Array(totalPages).keys()];
 

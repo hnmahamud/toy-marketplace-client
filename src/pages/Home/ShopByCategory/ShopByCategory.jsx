@@ -6,7 +6,9 @@ const ShopByCategory = () => {
   const [subCatData, setSubCatData] = useState();
 
   useEffect(() => {
-    fetch(`http://localhost:5000/toys-subCat?subCat=${subCat}`)
+    fetch(
+      `https://toy-marketplace-server-azure.vercel.app/toys-subCat?subCat=${subCat}`
+    )
       .then((res) => res.json())
       .then((data) => {
         setSubCatData(data);
