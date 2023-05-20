@@ -1,9 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import allToysPic from "../../assets/photos/allToys.jpg";
 import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
 import AllToysCard from "./AllToysCard";
 import { useLoaderData } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
+import Hero from "../Shared/Hero/Hero";
 
 const AllToys = () => {
   useTitle("All Toys");
@@ -67,9 +67,7 @@ const AllToys = () => {
 
   return (
     <div className="my-8">
-      <h1 className="text-center text-2xl text-gray-500 font-extrabold mb-8">
-        All Toys
-      </h1>
+      <Hero title="All Toys"></Hero>
       <div className="flex justify-center items-center text-center my-12">
         <div className="form-control">
           <form onSubmit={handleFind} className="input-group">
@@ -101,55 +99,50 @@ const AllToys = () => {
         </div>
       </div>
       {allToys.length > 0 ? (
-        <div className="grid grid-cols-1 md:grid-cols-3 md:justify-center md:gap-4">
-          <div className="col-span-2">
-            <div className="overflow-x-auto">
-              <table className="table w-full">
-                <thead>
-                  <tr>
-                    <th></th>
-                    <th>Seller Name</th>
-                    <th>Toy Name</th>
-                    <th>Sub-category</th>
-                    <th>Price</th>
-                    <th>Quantity</th>
-                    <th>View</th>
-                  </tr>
-                </thead>
-                <tbody>
-                  {allToys.length > 0 &&
-                    allToys.map((toy) => (
-                      <AllToysCard key={toy._id} toy={toy}></AllToysCard>
-                    ))}
-                </tbody>
-              </table>
-            </div>
-            <div className="text-center space-x-2 my-8">
-              {pageNumbers.map((number) => (
-                <button
-                  key={number}
-                  onClick={() => setCurrentPage(number)}
-                  type="button"
-                  className={`${
-                    number === currentPage ? "bg-blue-700 text-white" : ""
-                  } border border-blue-700 font-medium rounded-full text-sm px-3 py-1.5 text-center inline-flex items-center`}
-                >
-                  {number + 1}
-                </button>
-              ))}
-              <select
-                className="border border-blue-700 font-medium rounded-lg text-sm p-2 text-center inline-flex items-center"
-                onChange={handleChange}
-                value={itemsPerPage}
-              >
-                {option.map((op, index) => (
-                  <option key={index}>{op}</option>
-                ))}
-              </select>
-            </div>
+        <div>
+          <div className="overflow-x-auto">
+            <table className="table w-full">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Seller Name</th>
+                  <th>Toy Name</th>
+                  <th>Sub-category</th>
+                  <th>Price</th>
+                  <th>Quantity</th>
+                  <th>View</th>
+                </tr>
+              </thead>
+              <tbody>
+                {allToys.length > 0 &&
+                  allToys.map((toy) => (
+                    <AllToysCard key={toy._id} toy={toy}></AllToysCard>
+                  ))}
+              </tbody>
+            </table>
           </div>
-          <div className="col-span-1">
-            <img className="rounded-md" src={allToysPic} alt="" />
+          <div className="text-center space-x-2 my-8">
+            {pageNumbers.map((number) => (
+              <button
+                key={number}
+                onClick={() => setCurrentPage(number)}
+                type="button"
+                className={`${
+                  number === currentPage ? "bg-blue-700 text-white" : ""
+                } border border-blue-700 font-medium rounded-full text-sm px-3 py-1.5 text-center inline-flex items-center`}
+              >
+                {number + 1}
+              </button>
+            ))}
+            <select
+              className="border border-blue-700 font-medium rounded-lg text-sm p-2 text-center inline-flex items-center"
+              onChange={handleChange}
+              value={itemsPerPage}
+            >
+              {option.map((op, index) => (
+                <option key={index}>{op}</option>
+              ))}
+            </select>
           </div>
         </div>
       ) : (
