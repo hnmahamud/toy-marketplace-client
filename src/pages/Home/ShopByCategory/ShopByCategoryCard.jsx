@@ -5,7 +5,7 @@ import { Link } from "react-router-dom";
 const ShopByCategoryCard = ({ toy }) => {
   const { _id, picture_url, name, price, rating } = toy;
   return (
-    <div className="shadow-md border rounded-md">
+    <div className="shadow border rounded-md">
       <figure>
         <img className="md:h-56 rounded-md" src={picture_url} />
       </figure>

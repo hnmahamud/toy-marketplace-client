@@ -30,7 +30,7 @@ const Gallery = () => {
         data-aos-duration="1000"
         className="md:w-[70%] md:mx-auto md:text-center space-y-4"
       >
-        <h2 className="text-2xl md:text-4xl text-gray-500 font-extrabold">
+        <h2 className="text-2xl md:text-4xl text-blue-500 font-extrabold">
           Play with <br className="hidden md:block" /> Captivating Educational
           Toy Gallery
         </h2>
@@ -50,12 +50,12 @@ const Gallery = () => {
         {images
           ? images.map((image) => (
               <a
-                className="relative max-w-xs overflow-hidden bg-cover bg-no-repeat"
+                className="relative max-w-xs overflow-hidden bg-cover bg-no-repeat rounded-sm"
                 key={image.id}
                 href={image.imageUrl}
               >
                 <img
-                  className="max-w-xs transition duration-300 ease-in-out hover:scale-110 h-full w-full hover:opacity-40"
+                  className="max-w-xs transition duration-300 ease-in-out hover:scale-110 h-full w-full hover:opacity-40 rounded-sm"
                   alt={`img${image.id}`}
                   src={image.imageUrl}
                 />
