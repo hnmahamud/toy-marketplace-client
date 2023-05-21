@@ -4,6 +4,7 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
 import useTitle from "../../hooks/useTitle";
+import Hero from "../Shared/Hero/Hero";
 
 const ToyDetails = () => {
   // Custom hook for set website page wise title
@@ -37,9 +38,7 @@ const ToyDetails = () => {
   } = toy;
   return (
     <div className="md:h-[calc(100vh-138px)] my-8">
-      <h1 className="text-center text-2xl text-gray-500 font-extrabold mb-8">
-        Toy details
-      </h1>
+      <Hero title="Toy details"></Hero>
       <div className="grid grid-cols-1 md:grid-cols-3 shadow-md border rounded-md">
         <figure className="md:col-span-1">
           <img src={picture_url} />
