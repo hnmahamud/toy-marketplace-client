@@ -6,6 +6,7 @@ import useTitle from "../../hooks/useTitle";
 import Hero from "../Shared/Hero/Hero";
 import Swal from "sweetalert2";
 import useScrollTop from "../../hooks/useScrollTop";
+import { toast } from "react-toastify";
 
 const UpdateToy = () => {
   // Custom hook
@@ -22,7 +23,6 @@ const UpdateToy = () => {
     fetch(`https://toy-marketplace-server-azure.vercel.app/toys/${id}`)
       .then((res) => res.json())
       .then((data) => {
-        console.log(data);
         setToy(data);
       })
       .catch((error) => console.log(error));
@@ -60,9 +60,24 @@ const UpdateToy = () => {
             confirmButtonText: "Cool",
           });
           navigate("/my-toys", { replace: true });
+        } else {
+          setNLoading(false);
+          toast("Nothing updated! You have to change something to update.", {
+            position: "top-center",
+            autoClose: 3000,
+            hideProgressBar: false,
+            closeOnClick: true,
+            pauseOnHover: true,
+            draggable: true,
+            progress: undefined,
+            theme: "light",
+          });
         }
       })
-      .catch((error) => console.log(error));
+      .catch((error) => {
+        setNLoading(false);
+        console.log(error);
+      });
   };
 
   if (!toy) {
