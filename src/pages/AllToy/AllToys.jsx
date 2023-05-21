@@ -1,12 +1,17 @@
 import { useEffect, useRef, useState } from "react";
 import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
 import AllToysCard from "./AllToysCard";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useLocation } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
 import Hero from "../Shared/Hero/Hero";
+import useScrollTop from "../../hooks/useScrollTop";
 
 const AllToys = () => {
+  // Custom hook
+  const { pathname } = useLocation();
+  useScrollTop(pathname);
   useTitle("All Toys");
+
   const [allToys, setAllToys] = useState(false);
   const inputRef = useRef(null);
 

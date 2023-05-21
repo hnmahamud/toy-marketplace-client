@@ -4,10 +4,14 @@ import loginRegAnimation from "../../assets/animation/login-reg-animation.json";
 import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProviders";
 import useTitle from "../../hooks/useTitle";
+import useScrollTop from "../../hooks/useScrollTop";
 
 const Register = () => {
-  // Custom hook for set website page wise title
+  // Custom hook
+  const { pathname } = useLocation();
+  useScrollTop(pathname);
   useTitle("Register");
+
   // Context API
   const { createUser, profileUpdate } = useContext(AuthContext);
 

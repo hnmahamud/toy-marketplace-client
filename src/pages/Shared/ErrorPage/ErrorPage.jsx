@@ -1,12 +1,16 @@
-import { Link, useRouteError } from "react-router-dom";
+import { Link, useLocation, useRouteError } from "react-router-dom";
 import Lottie from "lottie-react";
 import error404 from "../../../assets/animation/404-animation.json";
 import useTitle from "../../../hooks/useTitle";
+import useScrollTop from "../../../hooks/useScrollTop";
 
 // Error page
 const ErrorPage = () => {
-  // Custom hook for set website page wise title
+  // Custom hook
+  const { pathname } = useLocation();
+  useScrollTop(pathname);
   useTitle("Page Not Found");
+
   const { error } = useRouteError();
   console.error(error);
   return (

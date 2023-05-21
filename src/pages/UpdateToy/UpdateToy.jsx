@@ -1,14 +1,18 @@
-import { useNavigate, useParams } from "react-router-dom";
+import { useLocation, useNavigate, useParams } from "react-router-dom";
 import { useEffect } from "react";
 import { useState } from "react";
 import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
 import useTitle from "../../hooks/useTitle";
 import Hero from "../Shared/Hero/Hero";
 import Swal from "sweetalert2";
+import useScrollTop from "../../hooks/useScrollTop";
 
 const UpdateToy = () => {
-  // Custom hook for set website page wise title
+  // Custom hook
+  const { pathname } = useLocation();
+  useScrollTop(pathname);
   useTitle("Update Toy");
+
   const { id } = useParams();
   const [nLoading, setNLoading] = useState(false);
   const [toy, setToy] = useState();

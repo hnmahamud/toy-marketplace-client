@@ -1,8 +1,14 @@
+import { useLocation } from "react-router-dom";
 import useTitle from "../../hooks/useTitle";
 import Hero from "../Shared/Hero/Hero";
+import useScrollTop from "../../hooks/useScrollTop";
 
 const Blogs = () => {
+  // Custom hook
+  const { pathname } = useLocation();
+  useScrollTop(pathname);
   useTitle("Blogs");
+
   return (
     <div>
       <div className="flex flex-col space-y-4 my-8">

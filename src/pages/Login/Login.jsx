@@ -6,10 +6,14 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProviders";
 import { toast } from "react-toastify";
 import useTitle from "../../hooks/useTitle";
+import useScrollTop from "../../hooks/useScrollTop";
 
 const Login = () => {
-  // Custom hook for set website page wise title
+  // Custom hook
+  const { pathname } = useLocation();
+  useScrollTop(pathname);
   useTitle("Login");
+
   // Use Context API
   const { loginUser, googleLogin } = useContext(AuthContext);
 

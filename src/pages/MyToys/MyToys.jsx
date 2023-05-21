@@ -5,10 +5,15 @@ import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
 import Swal from "sweetalert2";
 import useTitle from "../../hooks/useTitle";
 import Hero from "../Shared/Hero/Hero";
+import { useLocation } from "react-router-dom";
+import useScrollTop from "../../hooks/useScrollTop";
 
 const MyToys = () => {
-  // Custom hook for set website page wise title
+  // Custom hook
+  const { pathname } = useLocation();
+  useScrollTop(pathname);
   useTitle("My Toys");
+
   const { user } = useContext(AuthContext);
   const [myToys, setMyToys] = useState(false);
   const [sortBy, setSortBy] = useState("normal");

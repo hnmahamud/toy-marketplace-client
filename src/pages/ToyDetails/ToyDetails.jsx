@@ -1,14 +1,18 @@
 import { Rating } from "@smastrom/react-rating";
 import "@smastrom/react-rating/style.css";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
 import useTitle from "../../hooks/useTitle";
 import Hero from "../Shared/Hero/Hero";
+import useScrollTop from "../../hooks/useScrollTop";
 
 const ToyDetails = () => {
-  // Custom hook for set website page wise title
+  // Custom hook
+  const { pathname } = useLocation();
+  useScrollTop(pathname);
   useTitle("Toy Details");
+
   const { id } = useParams();
   const [toy, setToy] = useState();
 

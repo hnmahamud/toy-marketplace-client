@@ -3,9 +3,15 @@ import { AuthContext } from "../../context/AuthProviders";
 import useTitle from "../../hooks/useTitle";
 import Hero from "../Shared/Hero/Hero";
 import Swal from "sweetalert2";
+import { useLocation } from "react-router-dom";
+import useScrollTop from "../../hooks/useScrollTop";
 
 const AddToy = () => {
+  // Custom hook
+  const { pathname } = useLocation();
+  useScrollTop(pathname);
   useTitle("Add Toy");
+
   const { user } = useContext(AuthContext);
   const [nLoading, setNLoading] = useState(false);
   const [selectedOption, setSelectedOption] = useState("language toys");
