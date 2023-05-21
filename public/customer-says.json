@@ -1,0 +1,44 @@
+[
+  {
+    "id": "1",
+    "image": "https://i.ibb.co/2q0HrQJ/Jessica-Smith.jpg",
+    "name": "Jessica Smith",
+    "designation": "Parent",
+    "say": "The educational toys I purchased from this website have made learning a joy for my children. They are not only having fun but also developing important skills and knowledge. Highly recommended!"
+  },
+  {
+    "id": "2",
+    "image": "https://i.ibb.co/g4Zx132/John-Davis.jpg",
+    "name": "John Davis",
+    "designation": "Teacher",
+    "say": "As a teacher, I am impressed with the quality and educational value of the toys offered on this website. They have become an integral part of my classroom, enhancing engagement and fostering a love for learning."
+  },
+  {
+    "id": "3",
+    "image": "https://i.ibb.co/stLS9BM/Emily-Thompson.jpg",
+    "name": "Emily Thompson",
+    "designation": "Educational Consultant",
+    "say": "I have been recommending these educational toys to parents and educators alike. The range of options caters to various learning styles, and the results speak for themselves - children are excited to learn and explore!"
+  },
+  {
+    "id": "4",
+    "image": "https://i.ibb.co/vvpjQxn/Alex-Parker.jpg",
+    "name": "Alex Parker",
+    "designation": "Child Psychologist",
+    "say": "As a child psychologist, I recognize the importance of play in a child's development. These educational toys strike the perfect balance between fun and learning, supporting cognitive, social, and emotional growth."
+  },
+  {
+    "id": "5",
+    "image": "https://i.ibb.co/GCPWZ3W/Sophia-Lee.jpg",
+    "name": "Sophia Lee",
+    "designation": "Parent and Educator",
+    "say": "Being both a parent and an educator, I am thrilled with the educational toys available here. They align with curriculum objectives and provide a hands-on learning experience that my children and students adore."
+  },
+  {
+    "id": "6",
+    "image": "https://i.ibb.co/ryyydpH/Michael-Johnson.jpg",
+    "name": "Michael Johnson",
+    "designation": "Education Enthusiast",
+    "say": "These educational toys have redefined the way we approach learning. They foster creativity, problem-solving, and critical thinking, giving children the tools they need to succeed in the modern world."
+  }
+]
