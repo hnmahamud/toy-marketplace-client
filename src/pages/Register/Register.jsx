@@ -5,6 +5,7 @@ import { useContext, useState } from "react";
 import { AuthContext } from "../../context/AuthProviders";
 import useTitle from "../../hooks/useTitle";
 import useScrollTop from "../../hooks/useScrollTop";
+import { toast } from "react-toastify";
 
 const Register = () => {
   // Custom hook
@@ -13,7 +14,7 @@ const Register = () => {
   useTitle("Register");
 
   // Context API
-  const { createUser, profileUpdate } = useContext(AuthContext);
+  const { createUser, profileUpdate, setLoading } = useContext(AuthContext);
 
   // state
   const [error, setError] = useState("");
@@ -42,20 +43,34 @@ const Register = () => {
         form.reset();
         const user = userCredential.user;
         console.log(user);
+        toast("Registration successful!", {
+          position: "top-center",
+          autoClose: 3000,
+          hideProgressBar: false,
+          closeOnClick: true,
+          pauseOnHover: true,
+          draggable: true,
+          progress: undefined,
+          theme: "light",
+        });
 
         // Update user profile
         profileUpdate(name, photo)
           .then(() => {
+            setLoading(false);
             setNLoading(false);
             navigate(from, { replace: true });
           })
           .catch((error) => {
+            setLoading(false);
             setNLoading(false);
+            navigate(from, { replace: true });
             console.log(error);
             setError(error);
           });
       })
       .catch((error) => {
+        setLoading(false);
         setNLoading(false);
         const errorMessage = error.message;
         console.log(errorMessage);
@@ -163,7 +178,7 @@ const Register = () => {
               <p>
                 <span className="text-gray-600">Already have an account?</span>
                 <Link to="/login" className="text-blue-600 font-semibold ml-2">
-                  Sign In
+                  Login
                 </Link>
               </p>
             </div>

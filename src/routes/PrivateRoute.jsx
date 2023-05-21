@@ -2,6 +2,7 @@ import { useContext } from "react";
 import { AuthContext } from "../context/AuthProviders";
 import { Navigate, useLocation } from "react-router-dom";
 import { toast } from "react-toastify";
+import LoadingSpinner from "../pages/Shared/LoadingSpinner/LoadingSpinner";
 
 const PrivateRoute = ({ children }) => {
   const { user, loading } = useContext(AuthContext);
@@ -11,7 +12,7 @@ const PrivateRoute = ({ children }) => {
 
   // if user is not available then return
   if (loading) {
-    return;
+    return <LoadingSpinner fullScreen={false}></LoadingSpinner>;
   }
 
   // if user is logged in then go to private target page

@@ -15,7 +15,7 @@ const Login = () => {
   useTitle("Login");
 
   // Use Context API
-  const { loginUser, googleLogin } = useContext(AuthContext);
+  const { loginUser, googleLogin, setLoading } = useContext(AuthContext);
 
   // state
   const [error, setError] = useState("");
@@ -55,6 +55,7 @@ const Login = () => {
         navigate(from, { replace: true });
       })
       .catch((error) => {
+        setLoading(false);
         setNLoading(false);
         const errorMessage = error.message;
         console.log(errorMessage);
@@ -82,6 +83,7 @@ const Login = () => {
         navigate(from, { replace: true });
       })
       .catch((error) => {
+        setLoading(false);
         // Handle Errors here.
         const errorMessage = error.message;
         console.log(errorMessage);
