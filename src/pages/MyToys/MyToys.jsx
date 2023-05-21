@@ -4,6 +4,7 @@ import MyToysCard from "./MyToysCard";
 import LoadingSpinner from "../Shared/LoadingSpinner/LoadingSpinner";
 import Swal from "sweetalert2";
 import useTitle from "../../hooks/useTitle";
+import Hero from "../Shared/Hero/Hero";
 
 const MyToys = () => {
   // Custom hook for set website page wise title
@@ -61,35 +62,50 @@ const MyToys = () => {
 
   return (
     <div className="my-8">
-      <h1 className="text-2xl text-center text-gray-500 font-extrabold mb-8">
-        My Toys
-      </h1>
-      <div className="mb-4">
-        <label className="label">
-          <span className="text-lg text-gray-500 font-extrabold">
-            Sort By Price:
-          </span>
-        </label>
-        <select
-          value={sortBy}
-          onChange={handleSelectChange}
-          className="select select-bordered"
-          required
-        >
-          <option value="normal">-Select One-</option>
-          <option value="ascending">Ascending</option>
-          <option value="descending">Descending</option>
-        </select>
-      </div>
-
+      <Hero title="My Toys"></Hero>
       {myToys.length > 0 ? (
-        myToys.map((toy) => (
-          <MyToysCard
-            key={toy._id}
-            toy={toy}
-            handleDelete={handleDelete}
-          ></MyToysCard>
-        ))
+        <>
+          <div className="mb-4">
+            <label className="label">
+              <span className="text-lg text-gray-500 font-extrabold">
+                Sort By Price:
+              </span>
+            </label>
+            <select
+              value={sortBy}
+              onChange={handleSelectChange}
+              className="select select-bordered"
+              required
+            >
+              <option value="normal">-Select One-</option>
+              <option value="ascending">Price low to high</option>
+              <option value="descending">Price high to low</option>
+            </select>
+          </div>
+          <div className="overflow-x-auto">
+            <table className="table w-full">
+              <thead>
+                <tr>
+                  <th></th>
+                  <th>Toy Name</th>
+                  <th>Sub-category</th>
+                  <th>Price</th>
+                  <th>Available Quantity</th>
+                  <th>Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                {myToys.map((toy) => (
+                  <MyToysCard
+                    key={toy._id}
+                    toy={toy}
+                    handleDelete={handleDelete}
+                  ></MyToysCard>
+                ))}
+              </tbody>
+            </table>
+          </div>
+        </>
       ) : (
         <div className="h-[calc(100vh-138px)]">
           <div className="alert alert-info shadow-md rounded-md text-white">

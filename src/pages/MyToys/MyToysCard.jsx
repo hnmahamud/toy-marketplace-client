@@ -1,22 +1,12 @@
-import { Rating } from "@smastrom/react-rating";
-import "@smastrom/react-rating/style.css";
 import { Link } from "react-router-dom";
+import { FaEye, FaEdit, FaTrash } from "react-icons/fa";
 
 const MyToysCard = ({ toy, handleDelete }) => {
-  const {
-    _id,
-    picture_url,
-    seller_name,
-    seller_email,
-    name,
-    sub_category,
-    price,
-    rating,
-    available_quantity,
-    detail_description,
-  } = toy;
+  const { _id, picture_url, name, sub_category, price, available_quantity } =
+    toy;
   return (
-    <div className="grid grid-cols-1 md:grid-cols-3 shadow-md border rounded-md mb-4">
+    <>
+      {/* <div className="grid grid-cols-1 md:grid-cols-3 shadow-md border rounded-md mb-4">
       <figure className="md:col-span-1">
         <img src={picture_url} />
       </figure>
@@ -66,7 +56,46 @@ const MyToysCard = ({ toy, handleDelete }) => {
           </button>
         </div>
       </div>
-    </div>
+    </div> */}
+      <tr>
+        <th></th>
+        <td>
+          <div className="flex items-center space-x-3">
+            <div className="avatar">
+              <div className="mask mask-squircle w-12 h-12">
+                <img src={picture_url} />
+              </div>
+            </div>
+            <div>
+              <div className="font-bold">{name}</div>
+            </div>
+          </div>
+        </td>
+        <td>{sub_category}</td>
+        <td>${price}</td>
+        <td>{available_quantity}</td>
+        <td className="space-x-2">
+          <Link
+            to={`/toy-details/${_id}`}
+            className="btn btn-active btn-ghost btn-sm"
+          >
+            <FaEye></FaEye>
+          </Link>
+          <Link
+            to={`/update-toy/${_id}`}
+            className="btn btn-sm btn-active btn-ghost"
+          >
+            <FaEdit></FaEdit>
+          </Link>
+          <button
+            onClick={() => handleDelete(_id)}
+            className="btn btn-sm btn-active btn-ghost"
+          >
+            <FaTrash></FaTrash>
+          </button>
+        </td>
+      </tr>
+    </>
   );
 };
 
